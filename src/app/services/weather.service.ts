@@ -9,17 +9,8 @@ import { Observable, lastValueFrom } from 'rxjs';
 export class WeatherService {
 
   apiURL: string = 'https://api.openweathermap.org/data/2.5/weather';
-  apiURL2: string = 'https://pokeapi.co/api/v2/pokemon/';
 
   constructor(private httpClient: HttpClient) { }
-
-  getAllPokemon(): Observable<any> {
-    return this.httpClient.get(this.apiURL2);
-  }
-
-  getAllPokemonAsPromise(): Promise<any> {
-    return lastValueFrom(this.httpClient.get(this.apiURL2));
-  }
 
   getWeather(city: string, key: string): Promise<any> {
     const params = new HttpParams()
